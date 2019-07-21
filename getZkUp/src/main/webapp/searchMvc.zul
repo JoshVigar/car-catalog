@@ -7,9 +7,9 @@
 	</hbox>
 	<listbox id="carListbox" rows="3" emptyMessage="No car found in the result">
 		<listhead>
-			<listheader label="Model" />
-			<listheader label="Make" />
-			<listheader label="Price" width="20%"/>
+			<listheader label="Model" sort="auto(model)" />
+			<listheader label="Make" sort="auto(make)" />
+			<listheader label="Price" width="20%" sort="auto(price)" />
 		</listhead>
 		<template name="model">
 			<listitem>
