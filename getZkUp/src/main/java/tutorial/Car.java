@@ -64,6 +64,7 @@ public class Car {
 		this.make = make;
 	}
 	
+//	New get and set methods for color
 	public String getColor() {
 		return color;
 	}

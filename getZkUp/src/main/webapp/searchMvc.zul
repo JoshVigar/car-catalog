@@ -5,7 +5,12 @@
 		<textbox id="keywordBox" />
 		<button id="searchButton" label="Search" image="/img/search.png" />
 	</hbox>
-	<listbox id="carListbox" rows="3" emptyMessage="No car found in the result">
+    <checkbox label="Disable Paging">
+        <attribute name="onCheck"><![CDATA[
+			carListbox.mold = "default".equals(carListbox.mold) ? "paging" : "default";
+        ]]></attribute>
+    </checkbox>
+	<listbox id="carListbox" mold="paging" pageSize="5" emptyMessage="No car found in the result">
 		<listhead>
 			<listheader label="Model" sort="auto(model)" />
 			<listheader label="Make" sort="auto(make)" />
