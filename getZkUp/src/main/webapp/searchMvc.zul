@@ -9,12 +9,14 @@
 		<listhead>
 			<listheader label="Model" sort="auto(model)" />
 			<listheader label="Make" sort="auto(make)" />
+			<listheader label="Color" sort="auto(color)" />
 			<listheader label="Price" width="20%" sort="auto(price)" />
 		</listhead>
 		<template name="model">
 			<listitem>
 				<listcell label="${each.model}"></listcell>
 				<listcell label="${each.make}"></listcell>
+				<listcell label="${each.color}"></listcell>
 				<listcell>$<label value="${each.price}" /></listcell>
 			</listitem>
 		</template>
@@ -24,6 +26,7 @@
 		<vlayout hflex="1">
 			<label id="modelLabel" />
 			<label id="makeLabel" />
+			<label id="colorLabel" />
 			<label id="priceLabel" />
 			<label id="descriptionLabel" />
 		</vlayout>

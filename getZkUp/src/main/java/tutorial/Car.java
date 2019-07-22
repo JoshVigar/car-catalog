@@ -5,6 +5,7 @@ public class Car {
 	private Integer id;
 	private String model;
 	private String make;
+	private String color;
 	private String preview;
 	private String description;
 	private Integer price;
@@ -12,10 +13,11 @@ public class Car {
 	public Car(){
 	}
 	
-	public Car(Integer id, String model, String make, String description,  String preview, Integer price){
+	public Car(Integer id, String model, String make, String color, String description,  String preview, Integer price){
 		this.id = id;
 		this.model = model;
 		this.make = make;
+		this.color = color;
 		this.preview = preview;
 		this.description = description;
 		this.price = price;
@@ -61,7 +63,15 @@ public class Car {
 	public void setMake(String make) {
 		this.make = make;
 	}
+	
+	public String getColor() {
+		return color;
+	}
 
+	public void setColor(String color) {
+		this.color = color;
+	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;

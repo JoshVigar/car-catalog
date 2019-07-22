@@ -31,6 +31,13 @@ public class SearchController extends SelectorComposer<Component> {
 	
 	
 	private CarService carService = new CarServiceImpl();
+
+//	On creation of the listbox object use the findAll method from carService to display the data
+	@Listen("onCreate = #carListbox")
+	public void getData(){
+		List<Car> result = carService.findAll();
+		carListbox.setModel(new ListModelList<Car>(result));
+	}
 	
 	@Listen("onClick = #searchButton")
 	public void search(){
