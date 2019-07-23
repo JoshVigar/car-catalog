@@ -9,6 +9,7 @@ import org.zkoss.zk.ui.select.SelectorComposer;
 import org.zkoss.zk.ui.select.annotation.*;
 import org.zkoss.zul.*;
 import org.zkoss.zul.ext.Selectable;
+import org.zkoss.zk.ui.util.*;
 
 public class SearchController extends SelectorComposer<Component> {
 
@@ -44,6 +45,12 @@ public class SearchController extends SelectorComposer<Component> {
 		String keyword = keywordBox.getValue();
 		List<Car> result = carService.search(keyword);
 		carListbox.setModel(new ListModelList<Car>(result));
+	}
+
+//	Add a new onClick event for the add vehicle button to open the add screen in a new tab
+	@Listen("onClick = #addLinkButton")
+	public void openAdd(){
+        Clients.evalJavaScript("var mywin = window.open('addVehicle.zul', 'myframe'); mywin.focus();");
 	}
 	
 	@Listen("onSelect = #carListbox")

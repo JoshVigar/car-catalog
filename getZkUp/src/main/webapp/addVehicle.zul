@@ -1,0 +1,20 @@
+<window title="Add" width="auto" border="normal"
+	apply="tutorial.AddController">
+	<hbox align="center">
+		Model:
+		<textbox id="modelBox" />
+		Make:
+		<textbox id="makeBox" />
+		Color:
+		<textbox id="colorBox" />
+		Preview:
+		<textbox id="previewBox" />
+		Description:
+		<textbox id="descriptionBox" />
+		Price:
+		<textbox id="priceBox" />
+	</hbox>	
+	<hbox align="center">
+		<button id="addButton" label="Add" />
+	</hbox>
+</window>
