@@ -124,6 +124,10 @@ public class CarServiceImpl implements CarService{
 	public void store(String model, String make, String color, String description,  String preview, Integer price) {
 		carList.add(new Car(id++, model, make, color, description, preview, price));
 		System.out.println(id++);
-		
+	}
+	
+	public void remove(Car car) {
+		carList.remove(car);
+		System.out.println(id++);
 	}
 }

@@ -25,10 +25,7 @@ public class AddController extends SelectorComposer<Component> {
 	@Wire
 	private Intbox priceBox;
 	
-	private CarService carService = new CarServiceImpl();
-	private List<Car> carList= new LinkedList<Car>();
-	private Boolean validated = false;
-	
+	private CarService carService = new CarServiceImpl();	
     
 	@Listen("onClick = #addButton")
 	public void add(){

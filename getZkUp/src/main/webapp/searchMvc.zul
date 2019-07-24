@@ -5,6 +5,7 @@
 		<textbox id="keywordBox" />
 		<button id="searchButton" label="Search" image="/img/search.png" />
 		<button id="addLinkButton" label="Add a New Vehicle" href="addVehicle.zul" />
+		<button id="deleteButton" label="Delete Selected Vehicle" disabled="true" />
 	</hbox>
     <checkbox label="Disable Paging">
         <attribute name="onCheck"><![CDATA[
@@ -27,7 +28,7 @@
 			</listitem>
 		</template>
 	</listbox>
-	<hlayout style="margin-top:20px" width="100%">
+	<hlayout id="descriptionPane" style="margin-top:20px" width="100%" visible="false" >
 		<image id="previewImage" width="250px" />
 		<vlayout hflex="1">
 			<label id="modelLabel" />

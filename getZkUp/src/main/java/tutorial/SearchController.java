@@ -17,6 +17,8 @@ public class SearchController extends SelectorComposer<Component> {
 	@Wire
 	private Textbox keywordBox;
 	@Wire
+	private Button deleteButton;
+	@Wire
 	private Listbox carListbox;
 	@Wire
 	private Label modelLabel;
@@ -26,6 +28,8 @@ public class SearchController extends SelectorComposer<Component> {
 	private Label priceLabel;
 	@Wire
 	private Label descriptionLabel;
+	@Wire
+	private Layout descriptionPane;
 	@Wire
 	private Image previewImage;
 	
@@ -39,6 +43,18 @@ public class SearchController extends SelectorComposer<Component> {
 		carListbox.setModel(new ListModelList<Car>(result));
 	}
 	
+	@Listen("onClick = #deleteButton")
+	public void delete(){
+		Set<Car> selection = ((Selectable<Car>)carListbox.getModel()).getSelection();
+		if (selection!=null && !selection.isEmpty()){
+			Car selected = selection.iterator().next();	
+	        carService.remove(selected);
+			getData();
+			deleteButton.setDisabled(true);	
+			descriptionPane.setVisible(false);
+		}
+	} 
+	
 	@Listen("onClick = #searchButton")
 	public void search(){
 		String keyword = keywordBox.getValue();
@@ -48,6 +64,8 @@ public class SearchController extends SelectorComposer<Component> {
 	
 	@Listen("onSelect = #carListbox")
 	public void showDetail(){
+		deleteButton.setDisabled(false);
+		descriptionPane.setVisible(true);
 		Set<Car> selection = ((Selectable<Car>)carListbox.getModel()).getSelection();
 		if (selection!=null && !selection.isEmpty()){
 			Car selected = selection.iterator().next();

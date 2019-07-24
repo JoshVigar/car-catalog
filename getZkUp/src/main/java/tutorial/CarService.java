@@ -8,7 +8,12 @@ public interface CarService {
      * Store or modify a car in car store.
      */
     void store(String model, String make, String color, String description,  String preview, Integer price);
-	
+    
+    /**
+     * Remove a car in car store.
+     */
+    void remove(Car car);
+    
 	/**
 	 * Retrieve all cars in the catalog.
 	 * @return all cars
