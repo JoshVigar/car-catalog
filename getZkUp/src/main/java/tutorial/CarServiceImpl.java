@@ -8,7 +8,7 @@ public class CarServiceImpl implements CarService{
 	//data model
 	private List<Car> carList= new LinkedList<Car>();
 	private static int id = 1;
-	//initialize book data (including color which has been added)
+	//initialize book data
 	public CarServiceImpl() {
 		carList.add(
 				new Car(id++, 
@@ -100,7 +100,6 @@ public class CarServiceImpl implements CarService{
 						85400));
 	}
 	
-	
 	public List<Car> findAll(){
 		return carList;
 	}
@@ -120,5 +119,11 @@ public class CarServiceImpl implements CarService{
 			}
 		}
 		return result;
+	}
+
+	public void store(String model, String make, String color, String description,  String preview, Integer price) {
+		carList.add(new Car(id++, model, make, color, description, preview, price));
+		System.out.println(id++);
+		
 	}
 }

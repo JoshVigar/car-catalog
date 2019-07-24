@@ -4,7 +4,7 @@
 		Keyword:
 		<textbox id="keywordBox" />
 		<button id="searchButton" label="Search" image="/img/search.png" />
-		<button id="addLinkButton" label="Add a New Vehicle" />
+		<button id="addLinkButton" label="Add a New Vehicle" href="addVehicle.zul" />
 	</hbox>
     <checkbox label="Disable Paging">
         <attribute name="onCheck"><![CDATA[

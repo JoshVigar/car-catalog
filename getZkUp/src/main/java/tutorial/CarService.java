@@ -3,7 +3,12 @@ package tutorial;
 import java.util.List;
 
 public interface CarService {
-
+	
+    /**
+     * Store or modify a car in car store.
+     */
+    void store(String model, String make, String color, String description,  String preview, Integer price);
+	
 	/**
 	 * Retrieve all cars in the catalog.
 	 * @return all cars

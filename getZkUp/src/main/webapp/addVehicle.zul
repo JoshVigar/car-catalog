@@ -1,20 +1,21 @@
 <window title="Add" width="auto" border="normal"
 	apply="tutorial.AddController">
-	<hbox align="center">
-		Model:
-		<textbox id="modelBox" />
-		Make:
-		<textbox id="makeBox" />
-		Color:
-		<textbox id="colorBox" />
-		Preview:
-		<textbox id="previewBox" />
-		Description:
-		<textbox id="descriptionBox" />
-		Price:
-		<textbox id="priceBox" />
-	</hbox>	
-	<hbox align="center">
+	<grid>
+		<columns>
+			<column width="120px" />
+        	<column/>
+		</columns>
+		<rows>
+			<row>Model:<textbox id="modelBox" constraint="no empty" width="50" /></row>
+			<row>Make:<textbox id="makeBox" constraint="no empty" width="50" /></row>
+			<row>Color:<textbox id="colorBox" width="50" /></row>
+			<row>Preview:<textbox id="previewBox" width="50" /></row>
+			<row>Description:<textbox id="descriptionBox" rows="4" width="300" /></row>
+			<row>Price:<intbox id="priceBox" constraint="no empty" width="8" /></row>
+		</rows>
+	</grid>	
+	<hbox align="centre">
+		<button id="backButton" label="Back" href="searchMvc.zul"/>
 		<button id="addButton" label="Add" />
 	</hbox>
-</window>
+</window>	

@@ -1,61 +1,43 @@
 package tutorial;
 
 
+import java.util.LinkedList;
 import java.util.List;
-import java.util.Set;
-
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.select.SelectorComposer;
 import org.zkoss.zk.ui.select.annotation.*;
 import org.zkoss.zul.*;
-import org.zkoss.zul.ext.Selectable;
 
 public class AddController extends SelectorComposer<Component> {
 
 	private static final long serialVersionUID = 1L;
 	
 	@Wire
-	private Textbox keywordBox;
+	private Textbox modelBox;
 	@Wire
-	private Listbox carListbox;
+	private Textbox makeBox;
 	@Wire
-	private Label modelLabel;
+	private Textbox colorBox;
 	@Wire
-	private Label makeLabel;
+	private Textbox previewBox;
 	@Wire
-	private Label priceLabel;
+	private Textbox descriptionBox;
 	@Wire
-	private Label descriptionLabel;
-	@Wire
-	private Image previewImage;
-	
+	private Intbox priceBox;
 	
 	private CarService carService = new CarServiceImpl();
-
-//	On creation of the listbox object use the findAll method from carService to display the data
-	@Listen("onCreate = #carListbox")
-	public void getData(){
-		List<Car> result = carService.findAll();
-		carListbox.setModel(new ListModelList<Car>(result));
-	}
+	private List<Car> carList= new LinkedList<Car>();
+	private Boolean validated = false;
 	
-	@Listen("onClick = #searchButton")
-	public void search(){
-		String keyword = keywordBox.getValue();
-		List<Car> result = carService.search(keyword);
-		carListbox.setModel(new ListModelList<Car>(result));
-	}
-	
-	@Listen("onSelect = #carListbox")
-	public void showDetail(){
-		Set<Car> selection = ((Selectable<Car>)carListbox.getModel()).getSelection();
-		if (selection!=null && !selection.isEmpty()){
-			Car selected = selection.iterator().next();
-			previewImage.setSrc(selected.getPreview());
-			modelLabel.setValue(selected.getModel());
-			makeLabel.setValue(selected.getMake());
-			priceLabel.setValue(selected.getPrice().toString());
-			descriptionLabel.setValue(selected.getDescription());
+    
+	@Listen("onClick = #addButton")
+	public void add(){
+			carService.store(modelBox.getValue(),
+							 makeBox.getValue(),
+							 colorBox.getValue(),
+							 descriptionBox.getValue(),
+							 "/img/car1.png",
+							 priceBox.getValue());
+			alert("You have added a new vehicle!");
 		}
-	}
 }
